@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Secomp - Semana da Computação do IFMS Campus Nova Andradina">
     <title>Secomp - II Semana da Computação do IFMS <i>Campus</i> Nova Andradina - 2024</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <header>
