@@ -6,12 +6,12 @@
 }
 
 :root {
-  --primary-green: #4CAF50;
-  --secondary-green: #2E7D32;
-  --accent-blue: #2196F3;
-  --accent-orange: #FF9800;
-  --accent-red: #F44336;
-  --accent-yellow: #FFC107;
+  --primary-green: #4caf50;
+  --secondary-green: #2e7d32;
+  --accent-blue: #2196f3;
+  --accent-orange: #ff9800;
+  --accent-red: #f44336;
+  --accent-yellow: #ffc107;
   --text-dark: #1a1a1a;
   --text-light: #666;
   --bg-light: #f8f9fa;
@@ -21,7 +21,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--white);
@@ -42,17 +42,30 @@ body {
   left: 0;
   right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-blue) 25%, var(--accent-orange) 50%, var(--accent-red) 75%, var(--accent-yellow) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--primary-green) 0%,
+    var(--accent-blue) 25%,
+    var(--accent-orange) 50%,
+    var(--accent-red) 75%,
+    var(--accent-yellow) 100%
+  );
 }
 
 .geometric-border::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.1) 10px, rgba(255, 255, 255, 0.1) 20px);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
 }
 
 /* Typography */
@@ -108,7 +121,7 @@ body {
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -211,7 +224,7 @@ body {
 }
 
 .main-nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -248,7 +261,8 @@ body {
   right: 0;
   bottom: 0;
   opacity: 0.1;
-  background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 20px, white 20px, white 22px), repeating-linear-gradient(-45deg, transparent 0px, transparent 20px, white 20px, white 22px);
+  background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 20px, white 20px, white 22px),
+    repeating-linear-gradient(-45deg, transparent 0px, transparent 20px, white 20px, white 22px);
 }
 
 .hero-content {
@@ -374,15 +388,15 @@ body {
 }
 
 .feature-icon.blue {
-  background: linear-gradient(135deg, var(--accent-blue), #1976D2);
+  background: linear-gradient(135deg, var(--accent-blue), #1976d2);
 }
 
 .feature-icon.orange {
-  background: linear-gradient(135deg, var(--accent-orange), #F57C00);
+  background: linear-gradient(135deg, var(--accent-orange), #f57c00);
 }
 
 .feature-icon.red {
-  background: linear-gradient(135deg, var(--accent-red), #D32F2F);
+  background: linear-gradient(135deg, var(--accent-red), #d32f2f);
 }
 
 .feature-item h3 {
@@ -408,7 +422,7 @@ body {
 }
 
 .image-frame::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   left: -10px;
@@ -446,6 +460,24 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   background: white;
+  position: relative;
+}
+
+.tab-day::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-green);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab-day:hover::after,
+.tab-day.active::after {
+  transform: scaleX(1);
 }
 
 .tab-day:hover,
@@ -454,16 +486,33 @@ body {
   color: white;
 }
 
-.day-number {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1;
+.tab-content {
+  display: none;
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
 }
 
-.day-name {
-  font-size: 0.9rem;
-  opacity: 0.8;
+.tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .tab-content {
@@ -475,13 +524,10 @@ body {
 
 .schedule-item {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 1.5rem 0;
   border-bottom: 1px solid #eee;
-}
-
-.schedule-item:last-child {
-  border-bottom: none;
+  align-items: center;
 }
 
 .time {
@@ -506,17 +552,17 @@ body {
 }
 
 .event-type.opening {
-  background: #E8F5E8;
+  background: #e8f5e8;
   color: var(--primary-green);
 }
 
 .event-type.lecture {
-  background: #E3F2FD;
+  background: #e3f2fd;
   color: var(--accent-blue);
 }
 
 .event-type.workshop {
-  background: #FFF3E0;
+  background: #fff3e0;
   color: var(--accent-orange);
 }
 
@@ -557,9 +603,13 @@ body {
 }
 
 .speaker-image {
-  position: relative;
-  height: 250px;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
 }
 
 .speaker-image img {
@@ -569,7 +619,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-.speaker-card:hover .speaker-image img {
+.speaker-image:hover img {
   transform: scale(1.1);
 }
 
@@ -585,15 +635,17 @@ body {
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease;
+  border-radius: 50%;
 }
 
-.speaker-card:hover .speaker-overlay {
+.speaker-image:hover .speaker-overlay {
   opacity: 0.9;
 }
 
 .speaker-social {
   color: white;
   font-weight: 600;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -793,7 +845,14 @@ body {
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-blue) 25%, var(--accent-orange) 50%, var(--accent-red) 75%, var(--accent-yellow) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--primary-green) 0%,
+    var(--accent-blue) 25%,
+    var(--accent-orange) 50%,
+    var(--accent-red) 75%,
+    var(--accent-yellow) 100%
+  );
 }
 
 .footer-content {
@@ -864,8 +923,21 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
 
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
   .about-content,
   .registration-content,
   .contact-content {
@@ -887,47 +959,132 @@ body {
     gap: 2rem;
     text-align: center;
   }
+
+  .schedule {
+    padding: 4rem 0;
+  }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
   .header-container {
-    flex-direction: column;
-    gap: 1rem;
+    padding: 10px 0;
+  }
+
+  .logo img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .logo-text .secomp {
+    font-size: 1.3rem;
+  }
+
+  .logo-text .year {
+    font-size: 0.9rem;
   }
 
   .main-nav ul {
-    gap: 1rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 120px 0 60px;
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 
   .hero h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .location {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .about,
+  .schedule {
+    padding: 4rem 0;
   }
 
   .hero-stats {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-buttons .btn {
+    min-width: 250px;
   }
 
   .schedule-tabs {
-    flex-direction: column;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .schedule-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-day {
+    min-width: 80px;
+    flex-shrink: 0;
+    padding: 1rem 0.8rem;
+  }
+
+  .day-number {
+    font-size: 1.3rem;
+  }
+
+  .day-name {
+    font-size: 0.8rem;
   }
 
   .schedule-item {
-    flex-direction: column;
     gap: 1rem;
+    padding: 1.2rem 0;
+  }
+
+  .time {
+    min-width: 100px;
+    font-size: 1rem;
+  }
+
+  .event-info h3 {
+    font-size: 1.1rem;
   }
 
   .speakers-grid {
@@ -937,6 +1094,11 @@ body {
   .price-cards {
     gap: 1rem;
   }
+
+  .speaker-image {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -944,16 +1106,170 @@ body {
     padding: 0 15px;
   }
 
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .main-nav ul {
+    gap: 1rem;
+  }
+
+  .hero {
+    padding: 140px 0 40px;
+  }
+
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .location {
+    font-size: 0.95rem;
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .section-badge {
+    font-size: 0.8rem;
+    padding: 6px 16px;
+  }
+
+  .about,
+  .schedule {
+    padding: 3rem 0;
   }
 
   .hero-buttons .btn {
     width: 100%;
+    min-width: auto;
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+
+  .tab-day {
+    min-width: 70px;
+    padding: 0.8rem 0.6rem;
+  }
+
+  .day-number {
+    font-size: 1.2rem;
+  }
+
+  .day-name {
+    font-size: 0.75rem;
+  }
+
+  .schedule-item {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
     text-align: center;
   }
+
+  .time {
+    min-width: auto;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .event-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .event-info p {
+    font-size: 0.9rem;
+  }
+
+  .event-type {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+
+  .speaker-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
 }
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .tab-day {
+    min-width: 65px;
+    padding: 0.7rem 0.5rem;
+  }
+
+  .day-number {
+    font-size: 1.1rem;
+  }
+
+  .day-name {
+    font-size: 0.7rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .tab-day {
+    min-width: 60px;
+    padding: 0.6rem 0.4rem;
+  }
+
+  .day-number {
+    font-size: 1rem;
+  }
+
+  .day-name {
+    font-size: 0.65rem;
+  }
+
+  .tab-content {
+    padding: 1rem;
+  }
+
+  .hero-buttons .btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Applying the updates */
